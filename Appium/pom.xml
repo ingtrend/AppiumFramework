@@ -26,7 +26,7 @@
         </configuration>
       </plugin>
  </plugins>
- </build>
+</build>
   <name>Appium</name>
   <url>http://maven.apache.org</url>
 
@@ -35,21 +35,20 @@
   </properties>
 
   <dependencies>
-    <dependency>
+<dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
-    </dependency>
+</dependency>
     
 <dependency>
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
-    <version>7.3.0</version>
-    
-</dependency>
-    
-    <dependency>
+    <version>7.3.0</version>   
+</dependency>   
+
+<dependency>
     <groupId>io.appium</groupId>
     <artifactId>java-client</artifactId>
     <version>7.3.0</version>
@@ -61,17 +60,19 @@
     <version>3.141.59</version>
 </dependency>
 
-    <dependency>
+<dependency>
     <groupId>com.aventstack</groupId>
     <artifactId>extentreports</artifactId>
     <version>4.0.0</version>
 </dependency>
+
 <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
 <dependency>
     <groupId>org.slf4j</groupId>
     <artifactId>slf4j-api</artifactId>
     <version>1.7.30</version>
 </dependency>
+
 <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
 <dependency>
     <groupId>org.slf4j</groupId>
@@ -79,7 +80,7 @@
     <version>1.7.30</version>
 </dependency>
 
-  </dependencies>
+</dependencies>
   
   
 </project>
