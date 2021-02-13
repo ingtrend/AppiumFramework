@@ -40,90 +40,7 @@ public class Demos extends Capability {
 	}
 	
 	@Test(enabled=false)
-	public void testcase1()
-	{
-		//I want to select radio button//female as male is default
-		driver.findElement(By.xpath("//*[@text='Female']")).click();
-		//Enter name in Your name text box
-		driver.findElement(By.xpath("//*[@class='android.widget.EditText']")).sendKeys("Aish");
-		//I want to fetch the name and store it in a variable
-		String Name = driver.findElement(By.xpath("//*[@class='android.widget.EditText']")).getAttribute("text");
-		System.out.println(Name);
-		//Select the country drop down
-		driver.findElement(By.id("android:id/text1")).click();
-		//I want to scroll to India
-		driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"India\"))").click();
-		//I have to click on Let's Shop
-		driver.findElementById("com.androidsample.generalstore:id/btnLetsShop").click();
-		String Expected ="Aish";
-		Assert.assertEquals(Name, Expected);
-	}
-	
-	@Test(enabled=false)
-	public void testcase2()
-	{
-		//I want to select radio button//female as male is default
-				driver.findElement(By.xpath("//*[@text='Female']")).click();
-				//Enter name in Your name text box
-				//Select the country drop down
-				driver.findElement(By.id("android:id/text1")).click();
-				//I want to scroll to India
-				driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"India\"))").click();
-				//I have to click on Let's Shop
-				driver.findElementById("com.androidsample.generalstore:id/btnLetsShop").click();
-				//I want to capture the error message// the error message disappers after sometime
-				//Toast is used for error message by default.xpath is not explicitly identified
-				String errmsg = driver.findElementByXPath("//android.widget.Toast[1]").getAttribute("name");
-				String exp = "Please enter your name";
-				Assert.assertEquals(errmsg,exp);
-				//System.out.println(errmsg);
-		
-	}
-	
-	@Test(enabled=false)
-	public void testcase3()
-	{
-		//I want to select radio button//female as male is default
-		driver.findElement(By.xpath("//*[@text='Female']")).click();
-		//Enter name in Your name text box
-		driver.findElement(By.xpath("//*[@class='android.widget.EditText']")).sendKeys("Aish");
-		//I want to fetch the name and store it in a variable
-		//String Name = driver.findElement(By.xpath("//*[@class='android.widget.EditText']")).getAttribute("text");
-		//System.out.println(Name);
-		//Select the country drop down
-		driver.findElement(By.id("android:id/text1")).click();
-		//I want to scroll to India
-		driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Argentina\"))").click();
-		//I have to click on Let's Shop
-		driver.findElementById("com.androidsample.generalstore:id/btnLetsShop").click();
-		//I want to scroll till Air jordan 9 retro and click on add to card button
-		
-		/*not right way as index is not mentioned for add to card and when the scroll stops with expected element as 2nd in page, 
-		add to cart of the first index in the page is clicked instead
-		driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Air Jordan 9 Retro\"))");
-		driver.findElementById("com.androidsample.generalstore:id/productAddCart").click();*/ 
-		driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().resourceId(\"com.androidsample.generalstore:id/rvProductList\")).scrollIntoView(new UiSelector().textMatches(\"Air Jordan 9 Retro\"))");
-		int l1 = driver.findElementsById("com.androidsample.generalstore:id/productName").size();
-		System.out.println(l1);
-		for(int i=0;i<l1;i++)
-		{
-			String productName = driver.findElements(By.id("com.androidsample.generalstore:id/productName")).get(i).getText();
-			System.out.println(productName);
-			if(productName.equalsIgnoreCase("Air Jordan 9 Retro"))
-			{
-				driver.findElements(By.id("com.androidsample.generalstore:id/productAddCart")).get(i).click();
-				break;
-			}
-		}
-		
-		driver.findElement(By.id("com.androidsample.generalstore:id/appbar_btn_cart")).click();
-		//String cartProductName = driver.findElement(By.id("com.androidsample.generalstore:id/productName")).getText();
-		//String productName = "Air Jordan 9 Retro";
-		//Assert.assertEquals(productName, cartProductName);
-	}
-	
-	@Test()
-	public void testcase4() throws InterruptedException
+	public void testcase1() throws InterruptedException
 	{
 		//I want to select radio button//female as male is default
 		driver.findElement(By.xpath("//*[@text='Female']")).click();
@@ -193,6 +110,26 @@ public class Demos extends Capability {
 		driver.pressKey(new KeyEvent(AndroidKey.BACK));
 		driver.context("NATIVE_APP");
 		service.stop();
+	}
+	
+	@Test
+	public void testcase2()
+	{
+		//I want to select radio button//female as male is default
+		driver.findElement(By.xpath("//*[@text='Female']")).click();
+		//Enter name in Your name text box
+		driver.findElement(By.xpath("//*[@class='android.widget.EditText']")).sendKeys("Aish");
+		//I want to fetch the name and store it in a variable
+		String Name = driver.findElement(By.xpath("//*[@class='android.widget.EditText']")).getAttribute("text");
+		System.out.println(Name);
+		//Select the country drop down
+		driver.findElement(By.id("android:id/text1")).click();
+		//I want to scroll to India
+		driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Argentina\"))").click();
+		//I have to click on Let's Shop
+		driver.findElementById("com.androidsample.generalstore:id/btnLetsShop").click();
+		String Expected ="Aish";
+		Assert.assertEquals(Name, Expected);
 	}
 	
 }
